@@ -1,27 +1,28 @@
 <?php
 
-namespace Domain\ValueObject;
-
-/**
- * ValueObjectInterface
- *
- * @author Vasil Dakov <vasildakov@gmail.com>
- */
-interface ValueObjectInterface
-{
-    /**
-     * Returns TRUE if this object equals to another.
-     *
-     * @param  ValueObjectInterface $another
-     * @return bool
-     */
-    public function equals(ValueObjectInterface $another) : bool;
+namespace Domain\ValueObject {
 
     /**
-     * Compare this object with another
+     * ValueObjectInterface
      *
-     * @param  ValueObjectInterface $another
-     * @return bool
+     * @author Vasil Dakov <vasildakov@gmail.com>
      */
-    public function compareTo(ValueObjectInterface $another);
+    interface ValueObjectInterface
+    {
+        /**
+         * Returns TRUE if this object equals to another.
+         *
+         * @param  ValueObjectInterface $another
+         * @return bool
+         */
+        public function equals($another);
+
+        /**
+         * Compare this object with another
+         *
+         * @param  ValueObjectInterface $another
+         * @return bool
+         */
+        public function compareTo($another);
+    }
 }

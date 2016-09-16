@@ -1,20 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
-         bootstrap="vendor/autoload.php"
-         colors="true">
+<phpunit backupGlobals="false"
+    backupStaticAttributes="false"
+    colors="true"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    processIsolation="false"
+    stopOnFailure="false"
+    syntaxCheck="false"
+    bootstrap="vendor/autoload.php">
+
     <testsuites>
-        <testsuite name="App\\Tests">
-            <directory>./test</directory>
+        <testsuite name="Postcode Test Suite">
+            <directory>./test/</directory>
         </testsuite>
     </testsuites>
-
     <filter>
         <whitelist>
-            <directory suffix=".php">./src</directory>
+            <directory>./src/</directory>
             <exclude>
                 <directory suffix=".php">./src/ExpressiveInstaller/Resources</directory>
             </exclude>
         </whitelist>
     </filter>
+
+    <logging>
+        <log type="coverage-html" target="./build/coverage"/>
+        <log type="coverage-clover" target="./build/logs/clover.xml"/>
+    </logging>
+
 </phpunit>

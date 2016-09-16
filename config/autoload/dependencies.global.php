@@ -19,6 +19,7 @@ return [
         'factories' => [
             Application::class => ApplicationFactory::class,
             Helper\UrlHelper::class => Helper\UrlHelperFactory::class,
+            Doctrine\ORM\EntityManager::class => Infrastructure\Persistence\Doctrine\EntityManagerFactory::class,
         ],
     ],
 ];

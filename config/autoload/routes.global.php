@@ -1,13 +1,18 @@
 <?php
 
+use Infrastructure\Api\Middleware;
+use Application\Service;
+
 return [
     'dependencies' => [
         'invokables' => [
             Zend\Expressive\Router\RouterInterface::class => Zend\Expressive\Router\ZendRouter::class,
-            App\Action\PingAction::class => App\Action\PingAction::class,
+            Middleware\PingAction::class => Middleware\PingAction::class,
+            Service\BookService::class => Service\BookService::class
         ],
         'factories' => [
-            App\Action\HomePageAction::class => App\Action\HomePageFactory::class,
+            Middleware\HomePageAction::class => Middleware\HomePageFactory::class,
+            Middleware\BooksAction::class => Middleware\BooksActionFactory::class,
         ],
     ],
 
@@ -21,7 +26,13 @@ return [
         [
             'name' => 'api.ping',
             'path' => '/api/ping',
-            'middleware' => App\Action\PingAction::class,
+            'middleware' => Middleware\PingAction::class,
+            'allowed_methods' => ['GET'],
+        ],
+        [
+            'name' => 'api.books',
+            'path' => '/api/books',
+            'middleware' => Middleware\BooksAction::class,
             'allowed_methods' => ['GET'],
         ],
     ],
